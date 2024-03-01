@@ -1,5 +1,47 @@
 #!/usr/bin/python3
 
+#####################################################################################
+# pico_status.py
+# author 		: Kyriakos Naziris
+# modified by 	: Simon Lee aka - @smoonlee
+# since			: 31-12-2016
+# updated		: 01-03-2024 - Python3 & Raspbian GNU/Linux 11"
+# Script to show you some statistics pulled from your UPS PIco HV3.0A
+
+# -*- coding: utf-8 -*-
+# improved and completed by PiModules Version 1.0 29.08.2015
+# picoStatus-v3.py by KTB is based on upisStatus.py by Kyriakos Naziris
+# Kyriakos Naziris / University of Portsmouth / kyriakos@naziris.co.uk
+#
+# Improved and modified for PiModules PIco HV3.0A Stack Plus / Plus / Top
+# by Siewert Lameijer aka Siewert308SW
+#####################################################################################
+
+#####################################################################################
+# SETTINGS
+#####################################################################################
+
+# Set your desired temperature symbol
+# C = Celsius
+# F = Fahrenheit
+degrees = "C"
+
+# Do you have a PIco FAN kit installed?
+# True or False
+fankit = True
+
+# Do you have a to92 temp sensor installed?
+# True or False
+to92 = True
+
+# Do you have extended power?
+# True or False
+extpwr = False
+
+#####################################################################################
+# It's not necessary to edit anything below, unless you're knowing what to do!
+#####################################################################################
+
 import os
 import smbus
 import time
