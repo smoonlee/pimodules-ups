@@ -1,7 +1,6 @@
-
 import xmltodict
 
-DEFAULT_FSSD_XML_CONFIG ="""<?xml version="1.0" encoding="utf-8"?>
+DEFAULT_FSSD_XML_CONFIG = """<?xml version="1.0" encoding="utf-8"?>
 <root>
 	<fssd:config xmlns:fssd="http://pimodules.com/">
 		<fssd:alerts>
@@ -24,26 +23,25 @@ DEFAULT_FSSD_XML_CONFIG ="""<?xml version="1.0" encoding="utf-8"?>
 
 
 def read_config_xml(xml, default=True):
-	try:
-		if default:
-			dict = xmltodict.parse(DEFAULT_FSSD_XML_CONFIG)
-		else:
-			with open(xml, "rt") as fi:
-				dict = xmltodict.parse(fi)
+    try:
+        if default:
+            dict_data = xmltodict.parse(DEFAULT_FSSD_XML_CONFIG)
+        else:
+            with open(xml, "rt") as fi:
+                dict_data = xmltodict.parse(fi.read())
 
-	except IOError as e:
-		dict = xmltodict.parse(DEFAULT_FSSD_XML_CONFIG)
+    except IOError as e:
+        dict_data = xmltodict.parse(DEFAULT_FSSD_XML_CONFIG)
 
-	return dict
-
-def write_config_xml(xmlfile, dict):
-	try:
-	        with open(xmlfile, "wt") as fo:
-	                xmltodict.unparse(dict, fo, pretty=True)
-	except IOError as e:
-		print "Error writing XML file: ", e
-		return False
-
-	return True
+    return dict_data
 
 
+def write_config_xml(xmlfile, dict_data):
+    try:
+        with open(xmlfile, "wt") as fo:
+            xmltodict.unparse(dict_data, fo, pretty=True)
+    except IOError as e:
+        print("Error writing XML file:", e)
+        return False
+
+    return True
