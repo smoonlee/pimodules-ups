@@ -28,11 +28,11 @@ degrees = "C"
 
 # Do you have a PIco FAN kit installed?
 # True or False
-fankit = True
+fankit = False
 
 # Do you have a to92 temp sensor installed?
 # True or False
-to92 = True
+to92 = False
 
 # Do you have extended power?
 # True or False
