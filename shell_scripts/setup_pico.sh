@@ -36,8 +36,8 @@
   echo '--- removing fake-hwclock'
   sudo apt-get -y remove fake-hwclock && sudo update-rc.d -f fake-hwclock remove
   echo '--- installing & enabling daemon'
-  (cd ../code/python/package && sudo python setup.py install)
-  (cd ../code/python/upspico/picofssd && sudo python setup.py install)
+  (cd ../code/python/package && sudo python3 setup.py install)
+  (cd ../code/python/upspico/picofssd && sudo python3 setup.py install)
   (cd ../code/python/upspico/picofssd && sudo systemctl enable picofssd.service)
   echo '--- all done, rebooting'
   sudo reboot
